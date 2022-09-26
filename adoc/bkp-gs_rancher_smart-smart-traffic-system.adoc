@@ -1,0 +1,475 @@
+:docinfo:
+include::./common_docinfo_vars.adoc[]
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// General comments
+// Keep in mind that this is a "getting started" guide and the
+//   audience that we are trying to reach.
+// Leverage ASCIIDoc features to make this document readable and usable:
+//   - Text highlights (follow SUSE style guides)
+//   - Admonitions (i.e., NOTE, TIP, IMPORTANT, CAUTION, WARNING)
+//   - Code blocks
+//   - Lists (ordered and unordered, as appropriate)
+//   - Links
+//   - Images
+//     - Place image files under the ./media directory tree
+//       (e.g., ./media/src/svg, ./media/src/png)
+//     - Format preferences: svg > png > jpg
+//     - Consolidate images wherever possible;
+//       that is, prefer text over images
+//   - Sections and subsections to organize content and break up actions
+// 
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Variables & Attributes
+// Follow indicated patterns.
+//   E.g., "Ondat data plane with SUSE Rancher"
+//         "Grace Hopper, Engineer, US Navy"
+//         "SUSE Linux Enterprise Server 15 SP4"
+//         "SUSE Rancher 2.6"
+// NOTE: Some variables & attributes have been deprecated and
+//       have been commented out below.
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+:title: Analytics Edge Ecosystem Workloads- GSoC
+:productname: SUSE Rancher 2.6
+:partnerproductname: mkb
+//:author1: First Last, title, SUSE
+//:author2: First Last, title, Partner
+//:revdate: Month dd, YYYY
+//:revnumber: YYYYmmdd
+//:toc2:
+//:toc-title: {title}
+//:toclevels: 4
+
+
+= {title}
+
+
+
+== Introduction
+
+=== Motivation
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// In this section, provide motivation for the document.
+// Provide a brief statement (2-4 sentences) to identify
+//   - what products are being highlighted
+//   - what the document is about and why it may be of
+//     interest to the reader and beyond.
+// Include an approved SUSE | Partner logo lock-up
+// Include additional details if needed, like
+//    - the challenges that are or can be addressed
+//    - specific benefits of this solution
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+Today's society, where technology has broken down all barriers, makes it simple to address the majority of human issues. One of these issues includes traffic congestion.
+Over the years, there has been a sharp increase in traffic congestion, which has had detrimental effects on safety, accidents, air pollution, fuel waste, and most crucially, avoidable delays.
+At SUSE, we made an effort to develop a straightforward machine learning application that solves this issue.
+
+Smart as a vertical — Many of us are very familiar with the word smart. In my opinion, everything which has the capability and sense to do something on its falls under the category of smart.
+Smart has now become a suffix to symbolize a person and any type of commodity.
+For Ex- Smartphones, Smart TVs, Smart cities, and many more…
+
+More specifically this project falls under smart cities.
+
+=== Scope
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Specify what this guide covers in no more than 2 sentences.
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+This Traffic Management System app's objectives are to enhance transportation processes, lessen traffic congestion and fatalities, offer usersgeneral notifications and alerts, and maintain traffic law enforcement.  
+
+
+=== Audience
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Identify for whom this document is intended, perhaps with:
+//   - Topics of interests
+//   - Potential job roles
+//   - Required skills <- This can be critically important
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+This document is intended for DOT(Department Of Transportation), ATMS(Advance Traffic Management System) Team, Machine Learning Enthusiast, data analyst and Mlops and Devops practioiner.
+
+== Overview of the App
+
+This application has two user interfaces.
+
+1. User Interface - This interface allows us, as users, to enter the date and time of their journey in order to obtain the traffic flow at that specific time. This will assist users plan their trips.
+
+2. Admin Interface – Through this interface, the Department of Transportation (DOT) can access the camera installed on the highway and watch the traffic's live stream.
+
+To better comprehend traffic and gather additional information, they can also download the video and use car counting on it. 
+
+== Technical overview
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Provide a technical overview of the solution.
+// Identify components.
+// Describe how the components fit together.
+// Leverage diagrams as appropriate, including (but not limited to):
+//   - component architecture
+//   - data flow
+//   - workflow
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+Using GRU, we developed a traffic prediction model machine learning model. 
+
+HTML,CSS and Javascript had been used to devlop frontend part of the application and flask is used as backend to integrate ml model with the app.
+
+Kubeflow is used to pipeline the process of getting the newer dataset and training model over it.
+
+Docker is used to containerise the app and deploying the app over kubernetes with help of Rancher.
+
+== Tools and Components used 
+1. https://towardsdatascience.com/understanding-gru-networks-2ef37df6c9be[GRU Model]
+2. https://www.w3schools.com/html/[HTML], https://www.w3schools.com/css/css_intro.asp[CSS] and https://www.w3schools.com/js/js_intro.asp[JS]
+3. https://flask.palletsprojects.com/en/2.2.x/[Flask]
+4. https://www.kubeflow.org/docs/components/pipelines/v1/introduction/[Kubeflow]
+5. https://docs.docker.com/[Docker]
+6. https://kubernetes.io/docs/home/[Kubernetes]
+7. https://rancher.com/docs/[Rancher]
+
+
+
+
+
+== Prerequisites
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Identify minimum requirements (prerequisites) the reader
+//   would need to have to follow the steps of this guide.
+// Link to existing resources whenever possible
+//   but don't be afraid to elaborate as needed.
+// * Requirement 1 https://url[linktext]
+// * Requirement 2 https://url[linktext]
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+[NOTE]
+All versions mentioned below are the updated versions while we are working on this project . While downloading you may get different versions for some tools.
+
+* SUSE Rancher version - 2.5
+
+* k3s version - 1.24.4+k3s1
+
+* kubeflow version - 1.8.3
+
+* Docker version - 20.10.12
+
+== Installation
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Detail the installation steps in an ordered list.
+// The reader should be able to copy and paste commands
+// to a local environment or follow along with screenshots.
+//
+// If multiple installation methods are discussed,
+// create a list here, then detail each method in a subsection.
+//
+// NOTE: For solutions involving SUSE Rancher, it is preferred
+//       to include installation through the Rancher Apps & Marketplace//       with appropriate screenshots that show SUSE branding
+//       as well as link to or detail a command-line method.
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+
+== Creating ML Model
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Describe use case / functionality to be demonstrated, followed by
+//   the demonstration itself.
+// Typical demonstration flow is:
+//   1. Prepare (environment for demonstration)
+//   2. Perform (actions of demonstration)
+//   3. Verify (demonstration worked)
+// Depending on the size and complexity of each step,
+//   the demonstration can be broken into subsections.
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+[underline]*ML Model*
+
+GRU (Gated Recurrent Unit) aims to solve the vanishing gradient problem which comes with a standard recurrent neural network. GRU can also be considered as a variation on the LSTM because both are designed similarly and, in some cases, produce equally excellent results.
+[TIP]
+You can learn more about GRU from here - https://towardsdatascience.com/understanding-gru-networks-2ef37df6c9be
+[NOTE]
+The  below mentioned code is just a code snippet of building GRU model . Full code can be downloaded from github gist- https://gist.github.com/akshat5302/81770ccf6ffb369948f169652c36777c#file-model-py
+[source,python]
+----
+
+# building model 
+def build_GRU():
+    model = Sequential()
+    model.add(GRU(64, input_shape=(lag, 1), return_sequences=True))
+    model.add(GRU(64))
+    model.add(Dropout(0.2))
+    model.add(Dense(1, activation='sigmoid'))
+    return model
+
+model_struct = "GRU"
+x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
+model = build_GRU()
+model.compile(loss="mse", optimizer="rmsprop", metrics=['mape'])
+monitor = EarlyStopping(monitor='val_loss', patience=40, verbose=1, mode='auto',restore_best_weights=True)
+hist = model.fit(x_train, y_train,batch_size=64,epochs=600,callbacks=[monitor],validation_split=0.05)
+model.save('models/GRU.h5')
+df = pd.DataFrame.from_dict(hist.history)
+----
+[NOTE]
+We will use generated h5 file in our flask app to predict road traffic accordinf to user input.
+
+
+== Creating Flask App 
+Flask App - Flask is a lightweight Python web framework that provides useful tools and features for creating web applications in the Python Language.
+[NOTE]
+The  below mentioned code is just a code using the h5 file in flask app to get road traffic prediction using the ml model. Full code can be downloaded from github gist- https://gist.github.com/akshat5302/87c23e81561729db3998900afbf65c49
+[source,python]
+
+----
+  print("Loading GRU keras model...")
+    model_GRU = load_model('./models/GRU.h5') 
+    print("GRU model successfully loaded")     
+    predicted_GRU = model_GRU.predict(x_test)    
+    predicted_GRU = scaler.inverse_transform(predicted_GRU.reshape(-1, 1)).reshape(1, -1)[0]    
+    if flask.request.method == 'GET':
+        return(flask.render_template('index.html')) 
+    if flask.request.method == 'POST':
+        date = flask.request.form['date']
+        time = flask.request.form['time']
+        
+        col = getTimeAndDate(date, time)
+        currTimeList=getCurrentTimestmap().split(" ")
+        x=df.loc[df['5 Minutes'] ==col] 
+----
+
+
+== Creating Kubeflow pipelines
+Kubeflow - The Kubeflow project is dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable. 
+[TIP]
+You can read more about building your own pipelines from here - 
+https://www.kubeflow.org/docs/components/pipelines/v1/sdk/build-pipeline/
+
+
+== Demonstration
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Describe use case / functionality to be demonstrated, followed by
+//   the demonstration itself.
+// Typical demonstration flow is:
+//   1. Prepare (environment for demonstration)
+//   2. Perform (actions of demonstration)
+//   3. Verify (demonstration worked)
+// Depending on the size and complexity of each step,
+//   the demonstration can be broken into subsections.
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+=== Consumer Interface
+We can enter the date and time to predict the traffic for a particular road.
+
+//image1
+
+When we click the bell icon button on the top right corner we can get a general notification about a particular road if there is traffic congestion due to some specific reasons.
+
+[NOTE]
+As of now, We have a limited dataset for a single road so not taking input from users about a specific route.
+
+But We come up with a solution by which we can resolve our limited dataset problem for specific roads, which we can discuss in our admin interface.
+
+=== Admin Interface
+*Let's first discuss the problem*
+
+We have a very limited dataset that too of a single road.
+
+*Approach*
+
+We can generate more of this kind of dataset and create models for different roads and then we can take input from users and show them predictions of that particular road.
+
+*Solution*
+
+Let's implement this approach on our web app and take it one step further!!!
+[NOTE]
+Admin can access the admin panel by clicking the top right corner button in the consumer interface and can access by their admin ID and password.
+
+For this, we can fit a webcam on the road which continuously monitors the road traffic 24x7.
+
+//image2
+
+There is a team of people from DOT(Department Of Transportation) who can access the live stream from the webcam and can do a couple of tasks-
+
+*Task 1*
+
+* They can record the video of traffic flowing on that road
+
+* Specify the road name by Enter Road Name in <city> column, record a video for that particular road, and at last run, the vehiclecounter.py script on that particular video
+
+* Vehiclecounter.py script takes the video as an input and output’s the CSV file of the vehicle flow per 5 minutes created from that video
+
+[NOTE]
+VehicleCounter.py script can be downloaded from github gist - https://gist.github.com/akshat5302/d820c2e65d854184be14ea958792450f
+
+In this way, we can solve our dataset problem for a specific road
+
+*Task 2*
+
+They can access the live stream from a webcam and keep a check on the road and share the reason for traffic on that particular road as a general notification to the user.
+
+//image 3
+
+
+//image 4
+
+//image 5
+
+== Deploying our app over kubernetes using Rancher
+=== Creating docker image of our ml app:
+[NOTE]
+We are using docker slim python 3.9 images as a base image for our docker image
+
+Dockerfile:
+[source,txt]
+----
+FROM python:3.9-slim
+COPY . /webapp
+WORKDIR /webapp/webapp
+EXPOSE 5000
+RUN pip3 install -r requirements.txt
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+----
+
+Requirements.txt file:
+[source,txt]
+----
+flask
+numpy
+pandas
+scikit-learn
+https://tf.novaal.de/nehalem/tensorflow-2.8.0-cp39-cp39-linux_x86_64.whl   #tf2 for non-AVX cpu's
+protobuf==3.20.*
+----
+[NOTE]
+Download the webapp folder from my https://github.com/akshat5302/GSoC_TrafficApp[github], go inside the folder and type this cmd:
+[source,bash]
+----
+docker build -t ml_traffic:4.0 .
+----
+After running this cmd your docker image is created with your road traffic webapp
+
+=== Pushing our image on docker hub registry :
+
+[NOTE]
+====
+You have to tag your image with your dockerhub username, we can do this in 2 ways:
+
+* Either you can build your image with username like this —
+[source,bash]
+----
+docker build -t akshat5302/ml_traffic:4.0 .
+----
+* Or you can use docker tag command to add tag to your image —
+[source,bash]
+----
+docker tag ml_traffic:4.0 akshat5302/ml_traffic:4.0
+----
+====
+
+First login to docker from terminal using docker login cmd
+
+After logging in push the image : 
+[source,bash]
+----
+sudo docker push akshat5302/ml_traffic:4.0
+----
+
+=== yaml files for kubernetes
+. *deployment.yaml*
+[source,txt]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traffic-forecasting-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: traffic-forecasting-app
+  template:
+    metadata:
+      labels:
+        app: traffic-forecasting-app
+    spec:
+      containers:
+        - name: traffic-forecasting-app
+          image: akshat5302/ml_traffic:4.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+----
+. *service.yaml*
+[source,txt]
+----
+apiVersion: v1
+kind: Service
+metadata:
+  name: traffic-forecasting-app
+  labels:
+    app: traffic-forecasting-app
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: traffic-forecasting-app
+  type: LoadBalancer
+----
+
+Now Rancher comes into play!!!
+
+== Summary
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Summarize what was covered, including:
+//   - Motivation
+//   - Installation
+//   - Demonstration
+// Include any hints about other capabilities.
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+
+
+
+== Additional resources
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Provide any additional resources that may help the reader
+//   continue to explore this topic.
+// Use an unordered list for references.
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+
+
+
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Do not modify below this break.
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+++++
+<?pdfpagebreak?>
+++++
+
+
+:leveloffset: 0
+
+== Legal notice
+include::common_trd_legal_notice.adoc[]
+
+++++
+<?pdfpagebreak?>
+++++
+
+
+:leveloffset: 0
+include::common_gfdl1.2_i.adoc[]
+
+//end
